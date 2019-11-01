@@ -20,13 +20,12 @@
 
 	</nav>
 	<section id="main-content">
-	<div id = "recipe-header"> Recipes
-	</div>
+		<div id = "recipe-header">Recipes</div>
 	
 	<c:forEach items = "${ recipes }" var = "recipe">
-		<div class="recipie-display">
+		<div class="recipe-display">
 			<img src="img/recipe${recipe.recipeId }.jpg" />
-			<div class= "recipie-name"> ${recipe.name }</div>
+			<div class= "recipe-name"> ${recipe.name }</div>
 			<div class="star-rating">
 			
 			<c:forEach begin = "1" end = "5" var = "rating">
