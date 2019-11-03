@@ -19,8 +19,8 @@
         </ul>
         
     </nav>
-    <section id="main-content">
-    <div id = "recipe-header">Recipes</div>
+    <section id="main-content-table">
+    <div id = "recipe-header-table">Recipes</div>
 	<table>
        <!-- Use the request attribute "recipes" (List<Recipe>) -->
        <c:forEach begin = "0" end = "5" var = "row">
@@ -61,10 +61,10 @@
        			 <c:set var="cellValue" value="${ recipe.recipeType }" />
        		</c:when>
        		<c:when test = "${row == 3 }">
-       			 <c:set var="cellValue" value="${recipe.cookTimeInMinutes }" />
+       			 <c:set var="cellValue" value="${recipe.cookTimeInMinutes } min" />
        		</c:when>
        		<c:when test = "${row == 4 }">
-       			 <c:set var="cellValue" value="${recipe.ingredients.size() }" />
+       			 <c:set var="cellValue" value="${recipe.ingredients.size() } ingredients" />
        		</c:when>
        		<c:when test = "${row == 5 }">
        			 <c:set var="cellValue" value="" />

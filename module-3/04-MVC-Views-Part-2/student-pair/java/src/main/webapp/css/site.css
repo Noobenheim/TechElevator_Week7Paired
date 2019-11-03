@@ -118,11 +118,19 @@ tr:nth-child(2n){
 
 table{
 	border-collapse: collapse;
+	margin-right: 100px;
+	margin-left: 20px;
 }
 
 th{
 	background-color: white;
 }
 td img{
-	width: 35%;
+	width: 50%;
+}
+#recipe-header-table{
+	margin-bottom: 40px;
+	text-align: center;
+	font-size: 28px;
+	
 }
