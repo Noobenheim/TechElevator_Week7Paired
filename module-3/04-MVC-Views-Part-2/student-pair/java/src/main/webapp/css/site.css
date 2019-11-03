@@ -111,3 +111,18 @@ section {
 	width: 100%;
 	margin-bottom: 0px;
 }
+
+tr:nth-child(2n){
+	background-color: rgb(211, 211, 211);
+}
+
+table{
+	border-collapse: collapse;
+}
+
+th{
+	background-color: white;
+}
+td img{
+	width: 35%;
+}

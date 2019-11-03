@@ -20,6 +20,7 @@
         
     </nav>
     <section id="main-content">
+    <div id = "recipe-header">Recipes</div>
 	<table>
        <!-- Use the request attribute "recipes" (List<Recipe>) -->
        <c:forEach begin = "0" end = "5" var = "row">
@@ -57,16 +58,25 @@
        			<c:set var="cellValue" value="${ recipe.name }" />
        		</c:when>
        		<c:when test = "${row == 2 }">
-       			 <c:set var="cellValue" value="${  }" />
+       			 <c:set var="cellValue" value="${ recipe.recipeType }" />
        		</c:when>
        		<c:when test = "${row == 3 }">
-       			 <c:set var="cellValue" value="Ingredients" />
+       			 <c:set var="cellValue" value="${recipe.cookTimeInMinutes }" />
        		</c:when>
        		<c:when test = "${row == 4 }">
-       			 <c:set var="cellValue" value="Rating" />
+       			 <c:set var="cellValue" value="${recipe.ingredients.size() }" />
        		</c:when>
        		<c:when test = "${row == 5 }">
-       			 <c:set var="cellValue" value="Rating" />
+       			 <c:set var="cellValue" value="" />
+       			 <c:forEach begin = "1" end = "5" var = "rating">
+			
+				<c:set var = "className" value = ""/>
+				<c:if test = "${recipe.averageRating >= rating }">
+				<c:set var = "className" value = " filled"/>
+				</c:if>
+				
+				<c:set var = "cellValue" value = "${ cellValue}<span class='${ className }'>&#9734;</span>"/>
+			</c:forEach>	
        		</c:when>
        	</c:choose>
        
