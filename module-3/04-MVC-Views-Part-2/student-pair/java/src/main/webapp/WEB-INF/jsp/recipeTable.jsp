@@ -24,25 +24,55 @@
        <!-- Use the request attribute "recipes" (List<Recipe>) -->
        <c:forEach begin = "0" end = "5" var = "row">
        <tr>
-       <th>
+       <c:set var="cellValue" value="" />
        <c:choose>
-      	 	<c:when test = "${row ==1} }">
-       		name
+      	 	<c:when test = "${row ==1 }">
+       			<c:set var="cellValue" value="Name" />
        		</c:when>
-      		<c:when test = "${row ==2} }">
-       		name
+      		<c:when test = "${row ==2 }">
+       			<c:set var="cellValue" value="Type" />
        		</c:when>
-       		<c:when test = "${row ==3} }">
-       		name
+       		<c:when test = "${row ==3 }">
+       			 <c:set var="cellValue" value="Cook Time" />
        		</c:when>
-       		<c:when test = "${row ==4} }">
-       		name
+       		<c:when test = "${row ==4 }">
+       			 <c:set var="cellValue" value="Ingredients" />
        		</c:when>
-       		<c:when test = "${row ==5} }">
-       		name
+       		<c:when test = "${row ==5 }">
+       			 <c:set var="cellValue" value="Rating" />
        		</c:when>
        </c:choose>
+       <th>
+       ${ cellValue }
        </th>
+       
+       
+       <c:forEach items="${ recipes }" var="recipe">
+       <c:set var="cellValue" value="" />
+       <c:choose>
+      	 	<c:when test = "${row == 0 }">
+       			<c:set var="cellValue" value="<img src='img/recipe${ recipe.recipeId }.jpg' />" />
+       		</c:when>
+      		<c:when test = "${row == 1 }">
+       			<c:set var="cellValue" value="${ recipe.name }" />
+       		</c:when>
+       		<c:when test = "${row == 2 }">
+       			 <c:set var="cellValue" value="${  }" />
+       		</c:when>
+       		<c:when test = "${row == 3 }">
+       			 <c:set var="cellValue" value="Ingredients" />
+       		</c:when>
+       		<c:when test = "${row == 4 }">
+       			 <c:set var="cellValue" value="Rating" />
+       		</c:when>
+       		<c:when test = "${row == 5 }">
+       			 <c:set var="cellValue" value="Rating" />
+       		</c:when>
+       	</c:choose>
+       
+       <td>${ cellValue }</td>
+       </c:forEach>
+       
        </tr>
        </c:forEach>
 	</table>
