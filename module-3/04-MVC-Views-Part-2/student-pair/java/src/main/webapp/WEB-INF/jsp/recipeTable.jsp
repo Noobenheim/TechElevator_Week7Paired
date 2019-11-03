@@ -24,9 +24,25 @@
        <!-- Use the request attribute "recipes" (List<Recipe>) -->
        <c:forEach begin = "0" end = "5" var = "row">
        <tr>
-       
-       
-       
+       <th>
+       <c:choose>
+      	 	<c:when test = "${row ==1} }">
+       		name
+       		</c:when>
+      		<c:when test = "${row ==2} }">
+       		name
+       		</c:when>
+       		<c:when test = "${row ==3} }">
+       		name
+       		</c:when>
+       		<c:when test = "${row ==4} }">
+       		name
+       		</c:when>
+       		<c:when test = "${row ==5} }">
+       		name
+       		</c:when>
+       </c:choose>
+       </th>
        </tr>
        </c:forEach>
 	</table>
