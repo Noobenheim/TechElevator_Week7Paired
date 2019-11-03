@@ -20,9 +20,16 @@
         
     </nav>
     <section id="main-content">
-
+	<table>
        <!-- Use the request attribute "recipes" (List<Recipe>) -->
-
+       <c:forEach begin = "0" end = "5" var = "row">
+       <tr>
+       
+       
+       
+       </tr>
+       </c:forEach>
+	</table>
     </section>
 </body>
 </html>
