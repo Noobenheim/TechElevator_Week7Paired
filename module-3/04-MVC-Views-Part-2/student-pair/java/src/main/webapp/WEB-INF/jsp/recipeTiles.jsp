@@ -1,30 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta name="viewport" content="width=device-width" />
-<title>Recipe List View</title>
-<link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-	<header>
-		<h1>MVC Exercises - Views Part 2: Models</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="recipeTiles">Tile Layout</a></li>
-			<li><a href="recipeTable">Table Layout</a></li>
-		</ul>
-
-	</nav>
+<c:import url="/WEB-INF/jsp/common/header.jsp">
+	<c:param name="pageTitle" value="Recipe List View" />
+</c:import>
 	<section id="main-content">
 		<div id = "recipe-header">Recipes</div>
 	
 	<c:forEach items = "${ recipes }" var = "recipe">
 		<div class="recipe-display">
-			<img src="img/recipe${recipe.recipeId }.jpg" />
+			<c:url value="recipeDetails?recipeId=${ recipe.recipeId }" var="url" />
+			<a href="${ url }">
+				<img src="img/recipe${recipe.recipeId }.jpg" />
+			</a>
 			<div class= "recipe-name"> ${recipe.name }</div>
 			<div class="star-rating">
 			
@@ -46,5 +32,4 @@
 		<!-- Use the request attribute "recipes" (List<Recipe>) -->
 
 	</section>
-</body>
-</html>
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

@@ -1,24 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipe Table View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="recipeTiles">Tile Layout</a></li>
-            <li><a href="recipeTable">Table Layout</a></li>
-        </ul>
-        
-    </nav>
+<c:import url="/WEB-INF/jsp/common/header.jsp">
+	<c:param name="pageTitle" value="Recipe Table View" />
+</c:import>
     <section id="main-content-table">
     <div id = "recipe-header-table">Recipes</div>
 	<table>
@@ -52,7 +35,8 @@
        <c:set var="cellValue" value="" />
        <c:choose>
       	 	<c:when test = "${row == 0 }">
-       			<c:set var="cellValue" value="<img src='img/recipe${ recipe.recipeId }.jpg' />" />
+      	 		<c:url value="recipeDetails?recipeId=${ recipe.recipeId }" var="url" />
+       			<c:set var="cellValue" value="<a href='${ url }'><img src='img/recipe${ recipe.recipeId }.jpg' /></a>" />
        		</c:when>
       		<c:when test = "${row == 1 }">
        			<c:set var="cellValue" value="${ recipe.name }" />
@@ -87,5 +71,4 @@
        </c:forEach>
 	</table>
     </section>
-</body>
-</html>
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />
